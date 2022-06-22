@@ -9,50 +9,42 @@ public class SmartPhoneMain {
 	sp.addContactData(sp.inputContactData());
 	sp.addContactData(sp.inputContactData());
 	
-//	printMenu();
-//	
-//	while(printMenu()!=6) {
-//		switch(printMenu()) {
-//		case 1:
-//			sp.addContactData(sp.inputContactData());
-//			System.out.println();
-//		
-//		case 2:
-//			sp.printAllContact(); 
-//			System.out.println();
-//		
-//		case 3:
-//			System.out.println("이름을 입력하세요.");
-//			String searchName = sc.next();
-//			sp.searchContact(searchName);
-//			System.out.println();
-//		
-//		case 4:
-//			System.out.println("이름을 입력하세요.");
-//			String deleteName = sc.next();
-//			sp.deleteContact(deleteName);
-//			System.out.println();
-//		
-//		case 5:
-			System.out.println("이름을 입력하세요.");
-			String editName = sc.next();
-			Contact newContact = new Contact();
-			sp.editContact(editName, newContact);
+	printMenu();
+	do {
+		int menu = sc.nextInt();
+		if (menu == 1) {
+			System.out.println("**연락처 등록**");
+			sp.addContactData(sp.inputContactData());
 			System.out.println();
-//			
-//		case 6:
-//			break;
-//			
-//		default:		
-//			System.out.println("잘못 입력하셨습니다.");
-//			System.out.println();
-//		}
-//	}
-//	System.out.println("프로그램을 종료합니다.");
-//	
-	}
+		} else if (menu == 2) {
+			System.out.println("**모든 연락처 출력**");
+			sp.printAllContact();
+			System.out.println();
+		} else if (menu == 3) {
+			System.out.println("**연락처 검색**");
 
-	static int printMenu() { 
+			System.out.println();
+		} else if (menu == 4) {
+			System.out.println("**연락처 삭제**");
+
+			System.out.println();
+		} else if (menu == 5) {
+			System.out.println("**연락처 수정**");
+
+			System.out.println();
+		} else if (menu == 6) {
+			break;
+		} else {
+			System.out.println("잘못 입력하셨습니다.");
+		}
+		printMenu();
+	} while (sc.nextInt() != 6);
+	System.out.println("프로그램을 종료합니다.");
+}
+	
+	//메뉴 번호 입력하는대로 연결이 안 됨 왜지...
+
+	static void printMenu() { 
 		
 		System.out.println("Contact-------------------");
 		System.out.println(">> 1. 연락처 등록");
@@ -63,8 +55,5 @@ public class SmartPhoneMain {
 		System.out.println(">> 6. 프로그램 종료");
 		System.out.println("--------------------------");
 		System.out.print("몇 번 메뉴를 실행할까요? : ");
-		Scanner sc = new Scanner(System.in);
-		return sc.nextInt();
 	}
-	
 }
